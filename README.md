@@ -13,3 +13,8 @@ git clone https://github.com/typecho/typecho.git ## 克隆typecho
 ```bash
 docker-compose up -d
 ```
+
+如果遇到文件不可写时请进入两个容器执行
+```bash
+chown -R www-data:www-data /data/wwwroot/typecho
+```
