@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  php-fpm:
+    image: php:8.0-fpm
+    volumes:
+      - "./typecho:/data/wwwroot/typecho"
+
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - "./conf/nginx/:/etc/nginx/conf.d/"
+      - "./typecho:/data/wwwroot/typecho"
+      - "./logs:/data/wwwlogs"
